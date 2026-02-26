@@ -1,4 +1,4 @@
-# hfdrpipeline
+# HFDR Pipeline
 
 A small, CI-friendly pipeline step for mass-univariate IDP analysis + 2-level Hierarchical FDR (HFDR).
 
