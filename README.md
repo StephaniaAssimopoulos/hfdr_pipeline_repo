@@ -1,6 +1,8 @@
 # HFDR Pipeline
 
-A small, CI-friendly pipeline step for mass-univariate IDP analysis + 2-level Hierarchical FDR (HFDR).
+Reproducible data analysis pipeline in R with a CLI entrypoint, dependency locking (renv), and GitHub Actions CI that runs the pipeline and publishes artifacts.
+
+Runs mass-univariate IDP analysis + 2-level Hierarchical FDR (HFDR).
 
 ## Input format (long table)
 
