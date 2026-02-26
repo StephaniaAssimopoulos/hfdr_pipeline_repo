@@ -58,3 +58,4 @@ Then CI will run `renv::restore()`.
 Workflow is in `.github/workflows/ci.yaml` and runs on every push/PR.
 It restores dependencies, runs tests, runs the pipeline on `data/example.csv`,
 and uploads `artifacts/` as a build artifact.
+
