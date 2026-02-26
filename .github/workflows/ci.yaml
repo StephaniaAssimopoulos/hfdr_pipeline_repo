@@ -11,6 +11,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
 
       - name: Install system dependencies
         run: |
@@ -18,20 +20,22 @@ jobs:
           sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
 
       - name: Install renv
-        run: R -q -e "install.packages('renv')"
+        run: Rscript -e 'install.packages("renv", repos="https://cloud.r-project.org")'
 
       - name: Restore packages
-        run: R -q -e "renv::restore()"
+        run: Rscript -e 'renv::restore(prompt = FALSE)'
 
       - name: Run unit tests
-        run: R -q -e "install.packages('testthat'); testthat::test_dir('tests/testthat')"
+        run: Rscript -e 'testthat::test_dir("tests/testthat")'
 
       - name: Run pipeline on example data
         run: |
-          Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir artifacts
+          Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir artifacts --alpha 0.05
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-artifacts
-          path: artifacts/
+          path: |
+            artifacts/**
+            !artifacts/**/.DS_Store
