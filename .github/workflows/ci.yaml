@@ -1,0 +1,37 @@
+name: R-CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+
+      - name: Install renv
+        run: R -q -e "install.packages('renv')"
+
+      - name: Restore packages
+        run: R -q -e "renv::restore()"
+
+      - name: Run unit tests
+        run: R -q -e "install.packages('testthat'); testthat::test_dir('tests/testthat')"
+
+      - name: Run pipeline on example data
+        run: |
+          Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-artifacts
+          path: artifacts/

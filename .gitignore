@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# R session
+.Rhistory
+.RData
+.Rproj.user/
+
+# renv cache (VERY IMPORTANT)
+renv/library/
+renv/staging/
+
+# pipeline outputs
+artifacts/
+
+# local datasets (usually private)
+data/
+
+# temporary files
+*.log
+*.tmp

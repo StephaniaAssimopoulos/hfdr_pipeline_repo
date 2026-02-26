@@ -1,0 +1,21 @@
+Package: hfdrpipeline
+Title: HFDR Mass-Univariate Pipeline Step
+Version: 0.0.1
+Authors@R: c(person("Stephania Assimopoulos", email="stephania.assimopoulos@nottingham.ac.uk", role=c("aut","cre")))
+Description: Run mass-univariate linear models across IDPs and apply a two-level hierarchical FDR (HFDR) procedure, producing tabular results and plots.
+License: MIT
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    dplyr,
+    readr,
+    ggplot2,
+    patchwork,
+    ggrepel,
+    stats,
+    rlang
+Suggests:
+    testthat,
+    optparse
+Config/testthat/edition: 3
