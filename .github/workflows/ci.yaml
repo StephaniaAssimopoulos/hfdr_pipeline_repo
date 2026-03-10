@@ -26,7 +26,7 @@ jobs:
         run: Rscript -e 'renv::restore(prompt = FALSE)'
 
       - name: Run unit tests
-        run: Rscript -e 'testthat::test_dir("tests/testthat")'
+        run: Rscript -e 'install.packages("testthat", repos="https://cloud.r-project.org"); testthat::test_dir("tests/testthat")'
 
       - name: Run pipeline on example data
         run: |
