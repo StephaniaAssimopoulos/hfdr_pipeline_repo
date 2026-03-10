@@ -116,12 +116,7 @@ run_hfdr_pipeline <- function(input_csv, out_dir = "artifacts", alpha = 0.05,
     # HFDR (parent=modality)
     hf <- hfdr_two_level(outcomes, alpha = alpha, parent_col = "modality", p_col = "pval", parent_method = "bonf_minp")
     out_hf <- hf$results |>
-          dplyr::rename(
-            parent = parent_group,
-            parent_p = p_parent,
-            parent_q = q_parent
-          ) |>
-          dplyr::arrange(parent, outcome)
+        dplyr::arrange(parent, IDP)
 
     all_hfdr[[grp]] <- out_hf
 
