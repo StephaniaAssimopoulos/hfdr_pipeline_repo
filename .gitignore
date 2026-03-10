@@ -12,6 +12,7 @@ renv/staging/
 
 # pipeline outputs
 artifacts/
+output/
 
 # local datasets (usually private)
 data/
