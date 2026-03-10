@@ -30,12 +30,12 @@ jobs:
 
       - name: Run pipeline on example data
         run: |
-          Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir artifacts --alpha 0.05
+          Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir output --alpha 0.05
 
-      - name: Upload artifacts
+      - name: Upload results
         uses: actions/upload-artifact@v4
         with:
-          name: pipeline-artifacts
+          name: pipeline-results
           path: |
-            artifacts/**
-            !artifacts/**/.DS_Store
+            output/**
+            !output/**/.DS_Store
