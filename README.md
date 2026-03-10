@@ -45,12 +45,12 @@ Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir output --
 Outputs are written under:
 
 ```
-artifacts/<DATASET>/<DISEASE>/
+output/<DATASET>/<DISEASE>/
   raw_outcomes.csv
   hfdr_results.csv
   hfdr_parent_table.csv
   hfdr_summary.png
-artifacts/<DATASET>/
+output/<DATASET>/
   raw_outcomes_ALL.csv
   hfdr_results_ALL.csv
 ```
@@ -70,6 +70,6 @@ Then CI will run `renv::restore()`.
 ## GitHub Actions
 
 Workflow is in `.github/workflows/ci.yaml` and runs on every push/PR.
-It restores dependencies, runs tests, runs the pipeline on `data/example.csv`,
-and uploads `artifacts/` as a build artifact.
+It restores dependencies, runs tests, runs the pipeline on `data/example.csv` (as provided),
+and uploads `output/` as a build output.
 
