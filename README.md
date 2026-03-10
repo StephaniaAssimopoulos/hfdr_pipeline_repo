@@ -42,7 +42,7 @@ Run the pipeline from the repo root:
 Rscript inst/scripts/run_analysis.R --input data/example.csv --out_dir output --alpha 0.05
 ```
 
-Outputs are written under:
+Results are written under:
 
 ```
 output/<DATASET>/<DISEASE>/
