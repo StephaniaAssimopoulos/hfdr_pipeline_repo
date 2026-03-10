@@ -13,7 +13,13 @@ option_list <- list(
 
 options(error = function() { traceback(2); quit(status = 1) })
 
-opt <- parse_args(OptionParser(option_list = option_list))
+parser <- OptionParser(
+  usage = "%prog --input data/example.csv --out_dir output --alpha 0.05",
+  option_list = option_list,
+  description = "Run mass-univariate IDP analysis followed by two-level hierarchical FDR (HFDR)."
+)
+
+opt <- parse_args(parser)
 
 if (is.null(opt$input)) {
   stop("Please provide --input path/to/file.csv", call. = FALSE)
