@@ -22,6 +22,8 @@ source("R/hfdr.R")
 source("R/plots.R")
 source("R/pipeline.R")
 
+Sys.setenv(VROOM_CONNECTION_SIZE = 10485760)
+
 run_hfdr_pipeline(
   input_csv = opt$input,
   out_dir = opt$out_dir,
