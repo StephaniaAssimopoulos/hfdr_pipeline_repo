@@ -15,7 +15,8 @@ artifacts/
 output/
 
 # local datasets (usually private)
-data/
+data/*
+!data/example.csv
 
 # temporary files
 *.log
