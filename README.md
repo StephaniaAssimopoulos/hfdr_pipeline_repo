@@ -1,5 +1,7 @@
 # HFDR Pipeline
 
+![CI](https://github.com/StephaniaAssimopoulos/hfdr_pipeline_repo/actions/workflows/ci.yaml/badge.svg)
+
 Reproducible data analysis pipeline in R with a CLI entrypoint, dependency locking (renv), and GitHub Actions CI that runs the pipeline and produces results (tables + plots).
 
 Runs mass-univariate IDP analysis + 2-level Hierarchical FDR (HFDR).
