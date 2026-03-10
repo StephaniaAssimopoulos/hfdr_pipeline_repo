@@ -114,6 +114,19 @@ run_hfdr_pipeline <- function(input_csv, out_dir = "artifacts", alpha = 0.05,
     all_raw[[grp]] <- outcomes
 
     # HFDR (parent=modality)
+    required_outcome_cols <- c("IDP", "pval", "modality")
+    
+    missing_outcome_cols <- setdiff(required_outcome_cols, colnames(outcomes))
+    
+    if (length(missing_outcome_cols) > 0) {
+      stop(
+        paste(
+          "Outcome table missing required columns:",
+          paste(missing_outcome_cols, collapse = ", ")
+        ),
+        call. = FALSE
+      )
+    }
     hf <- hfdr_two_level(outcomes, alpha = alpha, parent_col = "modality", p_col = "pval", parent_method = "bonf_minp")
     required_cols <- c("parent", "parent_p", "parent_q")
 
