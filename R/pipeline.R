@@ -120,7 +120,8 @@ run_hfdr_pipeline <- function(input_csv, out_dir = "artifacts", alpha = 0.05,
     missing <- setdiff(required_cols, colnames(hf$results))
     
     if (length(missing) > 0) {
-      stop(paste("HFDR results missing columns:", paste(missing, collapse = ", ")))
+      stop(paste("HFDR results missing columns:", paste(missing, collapse = ", ")),
+    call. = FALSE)
     }
     
     out_hf <- hf$results |>
